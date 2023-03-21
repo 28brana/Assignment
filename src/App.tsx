@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Data } from './assets/data';
+import Card from './components/Card';
+import ActivityIcon from './assets/activity.svg';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='text-primary flex gap-4 pb-36 pt-10 pl-20'>
+        <img src={ActivityIcon} alt="icon"  />
+        Trending Assets
+        </h1>
+      <div className='flex flex-row flex-wrap gap-16 items-center justify-center'>
+        {
+          Data.map((card,index)=>(
+            <Card {...card} key={index}/>
+          ))
+        }
+      </div>
     </div>
   );
 }
+
+
 
 export default App;
